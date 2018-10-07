@@ -34,22 +34,23 @@
                 var char = String.fromCharCode(evt.which);
                 if (!(/[0-9]/.test(char))) {
                     evt.preventDefault();
+                }
+            }
+            function executaAcao(acao) {
+                if (valida()) {
+                    if (acao === 'clt') {
+                        document.getElementById('formulario').action = "clt.php";
+                    }
+                    if (acao === 'sn') {
+                        document.getElementById('formulario').action = "sn.php";
+                    }
+                } else {
                     alert("É necessario preencher os campos com valores numéricos");
                 }
             }
-            var mes = document.getElementById('meses').value;
-            var salario = document.getElementById('salario').value;
-
-            function executaAcao(acao) {
-                if (acao === 'clt') {
-                    document.getElementById('formulario').action = "clt.php";
-                }
-                if (acao === 'sn') {
-                    document.getElementById('formulario').action = "sn.php";
-                }
-            }
             function valida() {
-                alert(!(mes === "Meses" || salario === "Salário Base (R$)"));
+                var mes = document.getElementById('meses').value;
+                var salario = document.getElementById('salario').value;
                 return !(mes === "Meses" || salario === "Salário Base (R$)");
             }
 
