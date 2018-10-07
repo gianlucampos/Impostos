@@ -1,24 +1,21 @@
-<!DOCTYPE HTML>  
-<html>
-    <head>
-    </head>
+<html>  
     <style>
         #tabelaImpostos {
             font-family: arial, sans-serif;
             border-collapse: collapse;
-            /*            width: 100%;*/
+            width: 100%;
         }
 
         td, th {
             border: 1px solid #dddddd;
             text-align: left;
-            /*            padding: 8px;*/
+            padding: 8px;
         }
 
         tr:nth-child(even) {
             background-color: #dddddd;
         }
-        
+
         .output{
             color: green;
         }
@@ -26,9 +23,11 @@
     <body>  
         <div>
             <?php
+
             function arredonda($input) {
                 return round($input * 100) / 100;
             }
+
             $inss = "";
             $fgts = "";
             $d13salario = "";
@@ -45,26 +44,14 @@
             $custoMensal = "";
             $custoMensalSalario = "";
             $custoHora = "";
-            ?>
 
-            <form method="post" action="">  
-                <h2>Impostos Via CLT</h2>
-                Nome: <input type="text" name="nome" value="">
-                <br><br>
-                Salario: <input type="text" name="salario" value="">
-                <br><br>
-                <input type="submit" name="submit" value="Calcular">  
-            </form>
-
-
-            <?php
-            $nome = isset($_POST['nome']) ? $_POST['nome'] : "";
+            $salario = isset($_GET['meses']) ? $_GET['meses'] : "";
             if (!empty($nome)) {
                 ?>
                 <h2> <?php echo $nome ?> vai gastar/custar: </h2>
                 <?php
             }
-            $salario = isset($_POST['salario']) ? $_POST['salario'] : "";
+            $salario = isset($_GET['salario']) ? $_GET['salario'] : "";
             if (!empty($salario)) {
                 $inss = arredonda(0.278 * $salario); //6
                 $fgts = arredonda(0.08 * $salario); //7
@@ -79,8 +66,7 @@
                 $fgts_sem_ferias1_3 = arredonda(0.278 * $ferias1_3); //16
                 $avisoPrevio1_12 = arredonda((1 / 12) * $salario); //17
                 $multaFgts = ($fgts_sem_d13 + $fgts_sem_d13 + $fgts_sem_ferias1_12 + $fgts_sem_ferias1_3) / 2; //18
-                $custoMensal = 
-                        $inss +
+                $custoMensal = $inss +
                         $fgts +
                         $d13salario +
                         $inss_sem_d13 +
@@ -103,8 +89,8 @@
             <table id="tabelaImpostos">
                 <title></title>
                 <tr>
-                    <th>Salário Bruto</th> 
-                    <th>R$ <?php echo $salario; ?> </th>
+                    <th><h2>Salário Bruto</h2></th> 
+                    <th><h2>R$ <?php echo $salario; ?> </h2></th>
                 </tr>
                 <tr>
                     <td>INSS:</td>
@@ -164,5 +150,6 @@
                 </tr>
             </table>
         </div>
+        <a href="index.php">Voltar</a>
     </body>
 </html>
