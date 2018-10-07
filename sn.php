@@ -8,8 +8,30 @@ and open the template in the editor.
     <head>
         <meta charset="UTF-8">
         <title></title>
+         <style>
+        #tabelaImpostos {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        td, th {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+
+        tr:nth-child(even) {
+            background-color: #dddddd;
+        }
+
+        .output{
+            color: green;
+        }
+    </style>
+        
     </head>
-    
+   
     <body>
           <div>
             <?php
@@ -26,26 +48,12 @@ and open the template in the editor.
             $custoMensal = "";
             $custoMensalSalario = "";
             $custoHora = "";
-            ?>
-
-            <form method="post" action="">  
-                <h2>Impostos Via Simples Nacional</h2>
-                Meses: <input type="text" name="meses" value="">
-                <br><br>
-                Salario: <input type="text" name="salario" value="">
-                <br><br>
-                <input type="submit" name="submit" value="Calcular">  
-            </form>
-
-
-            <?php
-            $meses = isset($_POST['meses']) ? $_POST['meses'] : "";
+           
+            $meses = isset($_GET['meses']) ? $_GET['meses'] : "";
             if (!empty($meses)) {
-                ?>
-                <h2> <?php echo $meses ?> O empregado vai custar: </h2>
-                <?php
+               
             }
-            $salario = isset($_POST['salario']) ? $_POST['salario'] : "";
+            $salario = isset($_GET['salario']) ? $_GET['salario'] : "";
             if (!empty($salario)) {
                
                 $fgts = (0.08 * $salario); 

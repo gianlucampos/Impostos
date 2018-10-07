@@ -65,7 +65,7 @@
                 $fgts_sem_ferias1_12 = arredonda(0.08 * $ferias1_12); //15
                 $fgts_sem_ferias1_3 = arredonda(0.278 * $ferias1_3); //16
                 $avisoPrevio1_12 = arredonda((1 / 12) * $salario); //17
-                $multaFgts = ($fgts_sem_d13 + $fgts_sem_d13 + $fgts_sem_ferias1_12 + $fgts_sem_ferias1_3) / 2; //18
+                $multaFgts = ($fgts + $fgts_sem_d13 + $fgts_sem_ferias1_12 + $fgts_sem_ferias1_3) / 2; //18
                 $custoMensal = $inss +
                         $fgts +
                         $d13salario +
@@ -94,59 +94,59 @@
                 </tr>
                 <tr>
                     <td>INSS:</td>
-                    <td class="output"><?php echo $inss; ?></td>
+                    <td class="output">R$ <?php echo $inss; ?></td>
                 </tr>
                 <tr>
                     <td>FGTS:</td>
-                    <td class="output"><?php echo $fgts; ?></td>
+                    <td class="output">R$ <?php echo $fgts; ?></td>
                 </tr>
                 <tr>
                     <td>1/12 13º salário</td>
-                    <td class="output"><?php echo $d13salario; ?></td>
+                    <td class="output">R$ <?php echo $d13salario; ?></td>
                 </tr>
                 <tr>
                     <td>INSS sem 13º salário</td>
-                    <td class="output"><?php echo $inss_sem_d13; ?></td>
+                    <td class="output">R$ <?php echo $inss_sem_d13; ?></td>
                 </tr>
                 <tr>
                     <td>FGTS sem 13º salário</td>
-                    <td class="output"><?php echo $fgts_sem_d13; ?></td>
+                    <td class="output">R$ <?php echo $fgts_sem_d13; ?></td>
                 </tr>
                 <tr>
                     <td>1/12 Férias</td>
-                    <td class="output"><?php echo $ferias1_12; ?></td>                
+                    <td class="output">R$ <?php echo $ferias1_12; ?></td>                
                 </tr>
                 <tr>
-                    <td>1/3 Férias</td>
-                    <td class="output"><?php echo $ferias1_3; ?></td>                
+                    <td>1/3 Férias</td> 
+                    <td class="output">R$ <?php echo $ferias1_3; ?></td>                
                 </tr>
                 <tr>
                     <td>INSS sem 1/12 Férias </td>
-                    <td class="output"><?php echo $inss_sem_ferias1_12; ?></td>                
+                    <td class="output">R$ <?php echo $inss_sem_ferias1_12; ?></td>                
                 </tr>
                 <tr>
                     <td>INSS sem 1/3 Férias</td>
-                    <td class="output"><?php echo $inss_sem_ferias1_3; ?></td>                
+                    <td class="output">R$ <?php echo $inss_sem_ferias1_3; ?></td>                
                 </tr>
                 <tr>
                     <td>FGTS sem Férias</td>
-                    <td class="output"><?php echo $fgts_sem_ferias1_12; ?></td>                
+                    <td class="output">R$ <?php echo $fgts_sem_ferias1_12; ?></td>                
                 </tr>
                 <tr>
                     <td>FGTS sem 1/3 Férias</td>
-                    <td class="output"><?php echo $fgts_sem_ferias1_3; ?></td>                
+                    <td class="output">R$ <?php echo $fgts_sem_ferias1_3; ?></td>                
                 </tr>
                 <tr>
                     <td>1/12 Aviso prévio</td>
-                    <td class="output"><?php echo $avisoPrevio1_12; ?></td>                
+                    <td class="output">R$ <?php echo $avisoPrevio1_12; ?></td>                
                 </tr>
                 <tr>
                     <td>50% multa FGTS</td>
-                    <td class="output"><?php echo $multaFgts; ?></td>                
+                    <td class="output">R$ <?php echo $multaFgts; ?></td>                
                 </tr>
                 <tr>
                     <td>Total custo mensal</td>
-                    <td class="output"><?php echo $custoMensalSalario; ?></td>                
+                    <td class="output">R$ <?php echo $custoMensalSalario; ?></td>                
                 </tr>
             </table>
         </div>
