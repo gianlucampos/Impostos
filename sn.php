@@ -50,13 +50,13 @@ and open the template in the editor.
                
                 $fgts = (0.08 * $salario); 
                 $d13salario = ($salario/12);
-                $ferias1_12 = ($d13salario)*$meses; 
-                $ferias1_3 = ($ferias1_12/3)*$meses; 
-                $fgts_sem_d13 = (0.08 * $d13salario)*$meses;
-                $fgts_sem_ferias1_12 = (0.08 * $ferias1_12)*$meses; 
-                $fgts_sem_ferias1_3 = (0.278 * $ferias1_3)*$meses; 
-                $avisoPrevio1_12 = ((1 / 12) * $salario)*$meses;
-                $multaFgts = ($fgts_sem_d13 + $fgts_sem_d13 + $fgts_sem_ferias1_12 + $fgts_sem_ferias1_3) / 2; //18
+                $ferias1_12 = ($d13salario); 
+                $ferias1_3 = ($ferias1_12/3); 
+                $fgts_sem_d13 = (0.08 * $d13salario);
+                $fgts_sem_ferias1_12 = (0.08 * $ferias1_12); 
+                $fgts_sem_ferias1_3 = (0.278 * $ferias1_3); 
+                $avisoPrevio1_12 = (0.0833 * $salario);
+                $multaFgts = ($fgts + $fgts_sem_d13 + $fgts_sem_ferias1_12 + $fgts_sem_ferias1_3) / 2; //18
                 $custoMensal = 
                 
                         
