@@ -55,6 +55,7 @@
             $Anos = isset($_GET['Anos']) ? $_GET['Anos'] : "";
             if (!empty($Anos)) {
                 ?>
+                <h2 style="margin-left: 100px" > Consolidação das Leis do Trabalho</h2>
                 <h2 style="margin-left: 900px;">Custo em  <?php echo $Anos ?> Ano(s): </h2>
                 <?php
             }
