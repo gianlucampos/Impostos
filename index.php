@@ -5,7 +5,7 @@
 <form method="GET" action="#" id="formulario">
     <div class="box">
         <h1>Cálculo de Impostos</h1>
-        <input type="text" id="meses"name = "meses" onFocus="field_focus(this, 'Meses');" onblur="field_blur(this, 'Meses');"onkeypress="isNumber(event)" value="Meses" />
+        <input type="text" id="Anos"name = "Anos" onFocus="field_focus(this, 'Anos');" onblur="field_blur(this, 'Anos');"onkeypress="isNumber(event)" value="Anos" />
         <input type="text" id="salario"name = "salario" onFocus="field_focus(this, 'Salário Base (R$)');" onblur="field_blur(this, 'Salário Base (R$)');" onkeypress="isNumber(event)"value="Salário Base (R$)" />
         <input class="btn" type="submit" value="CLT" onclick="executaAcao('clt')" />
         <input class="btn" type="submit" value="SN" onclick="executaAcao('sn')"/>
@@ -49,9 +49,9 @@
                 }
             }
             function valida() {
-                var mes = document.getElementById('meses').value;
+                var mes = document.getElementById('Anos').value;
                 var salario = document.getElementById('salario').value;
-                return !(mes === "Meses" || salario === "Salário Base (R$)");
+                return !(mes === "Anos" || salario === "Salário Base (R$)");
             }
 
 </script>

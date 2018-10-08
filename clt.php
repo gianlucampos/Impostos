@@ -52,10 +52,10 @@
             $custoMensalSalario = "";
             $custoHora = "";
 
-            $meses = isset($_GET['meses']) ? $_GET['meses'] : "";
-            if (!empty($meses)) {
+            $Anos = isset($_GET['Anos']) ? $_GET['Anos'] : "";
+            if (!empty($Anos)) {
                 ?>
-                <h2 style="margin-left: 900px;">Custo em  <?php echo $meses ?> meses: </h2>
+                <h2 style="margin-left: 900px;">Custo em  <?php echo $Anos ?> Ano(s): </h2>
                 <?php
             }
             $salario = isset($_GET['salario']) ? $_GET['salario'] : "";
@@ -89,6 +89,7 @@
                         $inss_sem_ferias1_3 + $fgts_sem_ferias1_3;
 
                 $custoMensalSalario = arredonda($custoMensal + $salario);
+                $custoAnual = $custoMensalSalario * 12 * $Anos;
                 $custoHora = arredonda($custoMensal / 220);
             }
             ?>
@@ -102,9 +103,11 @@
                     <th><h2>R$ <?php echo $salario; ?> </h2></th>
                 </tr>
                 <tr>
-                    <td>INSS:<?php echo "  Alíquota de ";
-            echo $aliquota * 100;
-            echo "%" ?></td>
+                    <td>INSS:<?php
+                        echo "  Alíquota de ";
+                        echo $aliquota * 100;
+                        echo "%"
+                        ?></td>
                     <td class="output">R$ <?php echo $inss; ?></td>
                 </tr>
                 <tr>
@@ -154,6 +157,10 @@
                 <tr>
                     <td>50% multa FGTS</td>
                     <td class="output">R$ <?php echo $multaFgts; ?></td>                
+                </tr>
+                <tr>
+                    <td>Total custo Anual</td>
+                    <td class="output">R$ <?php echo $custoAnual; ?></td>                
                 </tr>
                 <tr>
                     <td>Total custo mensal</td>
