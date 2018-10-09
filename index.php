@@ -7,7 +7,7 @@
         <h1>Cálculo de Impostos</h1>
         <input type="text" id="Anos"name = "Anos" onFocus="field_focus(this, 'Anos');" onblur="field_blur(this, 'Anos');"onkeypress="isNumber(event)" value="Anos" />
         <input type="text" id="salario"name = "salario" onFocus="field_focus(this, 'Salário Base (R$)');" onblur="field_blur(this, 'Salário Base (R$)');" onkeypress="isNumber(event)"value="Salário Base (R$)" />
-        <input class="btn" type="submit" value="CLT" onclick="executaAcao('clt')" />
+        <input class="btn" type="submit" value="Normal" onclick="executaAcao('clt')" />
         <input class="btn" type="submit" value="SN" onclick="executaAcao('sn')"/>
     </div> 
 </form>

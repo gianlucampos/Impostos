@@ -48,6 +48,7 @@
             $Anos = isset($_GET['Anos']) ? $_GET['Anos'] : "";
             if (!empty($Anos)) {
                 ?>
+                <h2 style="margin-left: 100px" > Empresa Normal</h2>
                 <h2 style="margin-left: 900px;">Custo em  <?php echo $Anos ?> Ano(s): </h2>
                 <?php
             }
@@ -73,7 +74,7 @@
                 $fgts_sem_ferias1_12 = arredonda(0.08 * $ferias1_12);
                 $fgts_sem_ferias1_3 = arredonda(0.08 * $ferias1_3);
                 //Multa 50% FGTS 
-                $multaFgts = ($fgts + $fgts_sem_d13 + $fgts_sem_ferias1_12 + $fgts_sem_ferias1_3) / 2;
+                $multaFgts = arredonda(($fgts + $fgts_sem_d13 + $fgts_sem_ferias1_12 + $fgts_sem_ferias1_3) / 2);
                 //Custos
                 $custoMensal = $inss + $fgts + $d13salario + $avisoPrevio1_12 + $multaFgts + $ferias1_12 + $ferias1_3 +
                         $inss_sem_d13 + $fgts_sem_d13 +
@@ -81,7 +82,7 @@
                         $inss_sem_ferias1_3 + $fgts_sem_ferias1_3;
 
                 $custoMensalSalario = arredonda($custoMensal + $salario);
-                $custoAnual = ($custoMensalSalario - $multaFgts - $avisoPrevio1_12) * 12 * $Anos;
+                $custoAnual = arredonda(($custoMensalSalario - $multaFgts - $avisoPrevio1_12) * 12 * $Anos);
                 $custoHora = arredonda($custoMensal / 220);
             }
             ?>
