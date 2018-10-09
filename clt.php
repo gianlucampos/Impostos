@@ -28,13 +28,6 @@
                 return round($input * 100) / 100;
             }
 
-            function calculaAliquota($input) {
-                $input = $input <= 1693.72 ? 0.08 : $input; //  aliquota 8%
-                $input = $input >= 1693.73 && $input <= 2822.90 ? 0.09 : $input; // aliquota 9%
-                $input = $input >= 2822.91 && $input <= 5645.80 ? 0.11 : $input; // aliquota 11%
-                return $input;
-            }
-
             $inss = "";
             $fgts = "";
             $d13salario = "";
@@ -60,24 +53,23 @@
             }
             $salario = isset($_GET['salario']) ? $_GET['salario'] : "";
             if (!empty($salario)) {
-                $aliquota = calculaAliquota($salario);
                 //Inss
-                $inss = arredonda($aliquota * $salario);
+                $inss = arredonda(0.278 * $salario);
                 //Fgts
-                $fgts = arredonda(0.08 * $salario);
+                $fgts = arredonda(0.278 * $salario);
                 //13º salário
                 $d13salario = arredonda($salario / 12);
                 //Férias
                 $ferias1_12 = arredonda($d13salario);
                 $ferias1_3 = arredonda($ferias1_12 / 3);
                 //Aviso prévio
-                $avisoPrevio1_12 = arredonda((1 / 12) * $salario * 0.0833);
+                $avisoPrevio1_12 = arredonda($salario * 0.0833);
                 //Sem 13º salário
-                $inss_sem_d13 = arredonda($aliquota * $d13salario);
+                $inss_sem_d13 = arredonda(0.278 * $d13salario);
                 $fgts_sem_d13 = arredonda(0.08 * $d13salario);
                 //Sem Férias
-                $inss_sem_ferias1_12 = arredonda($aliquota * $ferias1_12);
-                $inss_sem_ferias1_3 = arredonda($aliquota * $inss_sem_ferias1_12);
+                $inss_sem_ferias1_12 = arredonda(0.278 * $ferias1_12);
+                $inss_sem_ferias1_3 = arredonda(0.278 * $inss_sem_ferias1_12);
                 $fgts_sem_ferias1_12 = arredonda(0.08 * $ferias1_12);
                 $fgts_sem_ferias1_3 = arredonda(0.08 * $ferias1_3);
                 //Multa 50% FGTS 
@@ -89,7 +81,7 @@
                         $inss_sem_ferias1_3 + $fgts_sem_ferias1_3;
 
                 $custoMensalSalario = arredonda($custoMensal + $salario);
-                $custoAnual = $custoMensalSalario * 12 * $Anos;
+                $custoAnual = ($custoMensalSalario - $multaFgts - $avisoPrevio1_12) * 12 * $Anos;
                 $custoHora = arredonda($custoMensal / 220);
             }
             ?>
@@ -103,11 +95,7 @@
                     <th><h2>R$ <?php echo $salario; ?> </h2></th>
                 </tr>
                 <tr>
-                    <td>INSS:<?php
-                        echo "  Alíquota de ";
-                        echo $aliquota * 100;
-                        echo "%"
-                        ?></td>
+                    <td>INSS:</td>
                     <td class="output">R$ <?php echo $inss; ?></td>
                 </tr>
                 <tr>
